@@ -37,6 +37,7 @@ public class CategoriasController : ControllerBase
     }
 
 
+   
     [HttpGet("FiltroNomeCategoria")]
     public async Task<ActionResult<IEnumerable<CategoriaDTO>>> GetCategoriaNome(
         [FromQuery] CategoriaFiltroNome categoriaFiltroNome)
@@ -44,7 +45,6 @@ public class CategoriasController : ControllerBase
         var categorias = await _uof.CategoriaRepository.GetCategoriasFiltroNomeAsync(categoriaFiltroNome);
         return CategoriaNomeDTO(categorias);
     }
-    
     [HttpGet("pagination")]
     public async Task<ActionResult<IEnumerable<CategoriaDTO>>> GetCategoriasPorPagina(
         [FromQuery] CategoriaParameters getCategoriasPorPagina)
