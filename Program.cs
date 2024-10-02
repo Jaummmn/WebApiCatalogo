@@ -9,6 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler
     = ReferenceHandler.IgnoreCycles);
+var origensComAcessoPermitido = "_origensComAcessoPermitido";
+builder.Services.AddCors(options =>
+    options.AddPolicy(name: origensComAcessoPermitido,
+        policy =>
+        {
+            policy.WithOrigins("https://www.apirequest.io");
+        })
+    );
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
