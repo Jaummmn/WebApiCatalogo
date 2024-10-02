@@ -11,7 +11,6 @@ Tratamento de erros e respostas padronizadas. <br>
 # Tecnologias Utilizadas
 ASP.NET Core <br>
 Entity Framework Core <br>
-xWeb (fictício, insira a documentação correta se for aplicável) <br>
 PagedList <br>
 AutoMapper <br>
 SQL Server <br>
