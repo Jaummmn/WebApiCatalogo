@@ -4,7 +4,7 @@ using WebApiCurso.Models;
 
 namespace WebApiCurso.Repositories.Interfaces;
 
-public interface IRepository<T>
+public interface IRepository<T> 
 {
     Task<IEnumerable<T>> GetAllAsync();
     Task<T?> GetAync(Expression<Func<T, bool>> predicate);

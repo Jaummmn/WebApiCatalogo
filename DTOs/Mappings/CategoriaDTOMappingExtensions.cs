@@ -2,7 +2,7 @@
 
 namespace WebApiCurso.DTOs.Mappings;
 
-public static class CategoriaDTOMappingExtensions
+public static class CategoriaDtoMappingExtensions
 {
     public static CategoriaDTO? ToCategoriaDto(this Categoria? categoria)
     {
@@ -19,7 +19,7 @@ public static class CategoriaDTOMappingExtensions
         };
     }
 
-    public static Categoria? ToCategoria(this CategoriaDTO categoriaDto)
+    public static Categoria? ToCategoria(this CategoriaDTO? categoriaDto)
     {
         if (categoriaDto is null)
         {

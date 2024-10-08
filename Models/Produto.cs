@@ -12,6 +12,7 @@ public class Produto
     public string? ImageUrl { get; set; } 
     public decimal PrecoProduto { get; set; }
     public bool EmEstoque { get; set; }
+    
     public DateTime DataCadastro { get; set; }
 
     public int CategoriaId { get; set; }

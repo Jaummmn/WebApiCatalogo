@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wbuSqJ5mp0uHXEDamKV/O/xladMGC2cg9Czalohl0YK8OqmrdyuGILQjz8eTT8b4Zyke80LzwjXPPikoZSvlpw==",
+  "dgSpecHash": "pvowyAE8EIk70FCwupHzz+UDKXpjUotacZHEm79zkQ32RDfRTugHOeZjMP9aTTvtj3ZBVeaTOnV1mHq8JsSpdw==",
   "success": true,
   "projectFilePath": "F:\\programacao\\C#\\APS.NET\\WebApiEstoque\\WebApiCurso.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\asp.versioning.http\\8.1.0\\asp.versioning.http.8.1.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\asp.versioning.mvc\\8.1.0\\asp.versioning.mvc.8.1.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

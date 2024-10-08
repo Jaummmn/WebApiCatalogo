@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using WebApiCurso.DTOs;
 using WebApiCurso.DTOs.Mappings;
@@ -8,6 +9,9 @@ using WebApiCurso.Repositories.Interfaces;
 using X.PagedList;
 
 namespace WebApiCurso.Controllers;
+[Route("api/v{version:apiVersion}/[Controller]")]
+[ApiController]
+[ApiVersion("1")]
 
 public class CategoriasController : ControllerBase
 {
@@ -19,7 +23,7 @@ public class CategoriasController : ControllerBase
     }
 
 
-    private ActionResult<IEnumerable<CategoriaDTO>> CategoriaNomeDTO(IPagedList<Categoria> categorias)
+    private ActionResult<IEnumerable<CategoriaDTO>> CategoriaNomeDto(IPagedList<Categoria> categorias)
     {
         var metadata = new
         {
@@ -43,14 +47,14 @@ public class CategoriasController : ControllerBase
         [FromQuery] CategoriaFiltroNome categoriaFiltroNome)
     {
         var categorias = await _uof.CategoriaRepository.GetCategoriasFiltroNomeAsync(categoriaFiltroNome);
-        return CategoriaNomeDTO(categorias);
+        return CategoriaNomeDto(categorias);
     }
     [HttpGet("pagination")]
     public async Task<ActionResult<IEnumerable<CategoriaDTO>>> GetCategoriasPorPagina(
         [FromQuery] CategoriaParameters getCategoriasPorPagina)
     {
         var categorias = await _uof.CategoriaRepository.GetCategoriasAsync(getCategoriasPorPagina);
-        return CategoriaNomeDTO(categorias);
+        return CategoriaNomeDto(categorias);
     }
 
     [HttpGet]
@@ -72,8 +76,8 @@ public class CategoriasController : ControllerBase
             return NotFound();
         }
 
-        var categoriaDTO = categoria.ToCategoriaDto();
-        return Ok(categoriaDTO);
+        var categoriaDto = categoria.ToCategoriaDto();
+        return Ok(categoriaDto);
     }
 
     [HttpGet("{id:int:min(1)}", Name = "ObterCategoria")]
@@ -86,21 +90,27 @@ public class CategoriasController : ControllerBase
             return NotFound();
         }
 
-        var categoriaDTO = categoria.ToCategoriaDto();
-        return Ok(categoriaDTO);
+        var categoriaDto = categoria.ToCategoriaDto();
+        return Ok(categoriaDto);
     }
 
     [HttpPost("PostCategoria")]
-    public ActionResult<CategoriaDTO> PostCategorias(Categoria categoria)
+    public ActionResult<CategoriaDTO> PostCategorias(Categoria? categoria)
     {
         if (categoria is null)
         {
+
             return BadRequest();
         }
 
         _uof.CategoriaRepository.Create(categoria);
         _uof.Commit();
         var categoriaDto = categoria.ToCategoriaDto();
+        if (categoriaDto is null)
+        {
+            return NotFound();
+        }
+        
         return new CreatedAtRouteResult("ObterCategoria",
             new { id = categoriaDto.Categoriaid }, categoriaDto);
     }
@@ -113,6 +123,7 @@ public class CategoriasController : ControllerBase
             return BadRequest();
         }
 
+        
         var categoriaAtualizada = _uof.CategoriaRepository.Update(categoria);
         _uof.Commit();
         var categoriaDtoAtualizada = categoriaAtualizada.ToCategoriaDto();
