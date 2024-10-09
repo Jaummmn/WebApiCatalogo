@@ -1,5 +1,7 @@
 ﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Newtonsoft.Json;
 using WebApiCurso.DTOs;
 using WebApiCurso.DTOs.Mappings;
@@ -11,8 +13,10 @@ using X.PagedList;
 namespace WebApiCurso.Controllers;
 [Route("api/v{version:apiVersion}/[Controller]")]
 [ApiController]
-[ApiVersion("1")]
-
+[ApiVersion("1.0")]
+[EnableCors]
+[EnableRateLimiting("FixedWindow")]
+[ApiConventionType(typeof(DefaultApiConventions))]
 public class CategoriasController : ControllerBase
 {
     private readonly IUnityOfWork _uof;
@@ -41,7 +45,11 @@ public class CategoriasController : ControllerBase
     }
 
 
-   
+   /// <summary>
+   /// Obtem uma lista de objetos Categoria
+   /// </summary>
+   /// <param name="categoriaFiltroNome"></param>
+   /// <returns>Uma lista de objetos Categoria</returns>
     [HttpGet("FiltroNomeCategoria")]
     public async Task<ActionResult<IEnumerable<CategoriaDTO>>> GetCategoriaNome(
         [FromQuery] CategoriaFiltroNome categoriaFiltroNome)
@@ -79,7 +87,11 @@ public class CategoriasController : ControllerBase
         var categoriaDto = categoria.ToCategoriaDto();
         return Ok(categoriaDto);
     }
-
+    /// <summary>
+    /// Obtem uma categoria com base no id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>Obejto categoria</returns>
     [HttpGet("{id:int:min(1)}", Name = "ObterCategoria")]
     public async Task<ActionResult<CategoriaDTO>> GetCategoriaId(int id)
     {

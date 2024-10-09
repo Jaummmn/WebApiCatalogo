@@ -1,6 +1,8 @@
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using Asp.Versioning;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.OpenApi.Models;
 using WebApiCurso.Context;
 using WebApiCurso.DTOs.Mappings;
@@ -11,11 +13,30 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler
     = ReferenceHandler.IgnoreCycles);
-var origensComAcessoPermitido = "_origensComAcessoPermitido";
+//CORS
+
 builder.Services.AddCors(options =>
-    options.AddPolicy(name: origensComAcessoPermitido,
-        policy => { policy.WithOrigins("https://www.apirequest.io"); })
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("https://www.apirequest.io")
+                .WithMethods("GET, POST") // restrigindo metodos HTTP
+                .AllowCredentials() //Permite o envio de credenciais 
+                .AllowAnyHeader(); // permite qualquer cabecalho
+        })
 );
+//
+builder.Services.AddRateLimiter(o =>
+{
+    o.AddFixedWindowLimiter("FixedWindow", options =>
+    {
+        options.PermitLimit = 1;
+        options.Window = TimeSpan.FromSeconds(5);
+        options.QueueLimit = 0;
+    });
+    o.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+});
+
 builder.Services.AddApiVersioning(o =>
 {
     o.DefaultApiVersion = new ApiVersion(1, 0);
@@ -26,19 +47,23 @@ builder.Services.AddApiVersioning(o =>
         new UrlSegmentApiVersionReader());
 });
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen( c=>
-    c.SwaggerDoc("v1",new OpenApiInfo()
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo()
     {
-     Version   = "v1",
-     Title = "APICatalogo",
-     Description = "Catalogo de Produtos e categorias",
+        Version = "v1",
+        Title = "APICatalogo",
+        Description = "Catalogo de Produtos e categorias",
         Contact = new OpenApiContact
         {
             Name = "Joao Victor Martinho",
             Email = "Joao.victor.martinho2@gmail.com"
         }
-    })
-    );
+    });
+    var xmlFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"; // Adicione a extensão .xml
+    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFileName));
+});
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
@@ -58,9 +83,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+
+app.UseCors();
 
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

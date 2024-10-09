@@ -848,3 +848,5 @@ F:\programacao\C#\APS.NET\WebApiEstoque\obj\Debug\net8.0\ref\WebApiCurso.dll
 F:\programacao\C#\APS.NET\WebApiEstoque\bin\Debug\net8.0\Asp.Versioning.Abstractions.dll
 F:\programacao\C#\APS.NET\WebApiEstoque\bin\Debug\net8.0\Asp.Versioning.Http.dll
 F:\programacao\C#\APS.NET\WebApiEstoque\bin\Debug\net8.0\Asp.Versioning.Mvc.dll
+F:\programacao\C#\APS.NET\WebApiEstoque\bin\Debug\net8.0\WebApiCurso.xml
+F:\programacao\C#\APS.NET\WebApiEstoque\obj\Debug\net8.0\WebApiCurso.xml
