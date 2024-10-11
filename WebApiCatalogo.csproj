@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Asp.Versioning.Http" Version="8.1.0" />
+        <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
+        <PackageReference Include="AutoMapper" Version="11.0.1" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="X.PagedList.Mvc.Bootstrap4" Version="10.1.2" />
+        <PackageReference Include="xunit.extensibility.core" Version="2.5.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="ApiCatalogoUnixTest\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ApiCatalogoUnixTest\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="ApiCatalogoUnixTest\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ApiCatalogoUnixTest\**" />
+    </ItemGroup>
+
+</Project>

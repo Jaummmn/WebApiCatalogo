@@ -25,3 +25,39 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = F:\programacao\C#\APS.NET\WebApiEstoque
 build_property._RazorSourceGeneratorDebug = 
+
+[F:/programacao/C\#/APS.NET/WebApiEstoque/BlazorApp1/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yQXBwMVxDb21wb25lbnRzXEFwcC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programacao/C\#/APS.NET/WebApiEstoque/BlazorApp1/Components/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yQXBwMVxDb21wb25lbnRzXFBhZ2VzXENvdW50ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programacao/C\#/APS.NET/WebApiEstoque/BlazorApp1/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yQXBwMVxDb21wb25lbnRzXFBhZ2VzXEVycm9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programacao/C\#/APS.NET/WebApiEstoque/BlazorApp1/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yQXBwMVxDb21wb25lbnRzXFBhZ2VzXEhvbWUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programacao/C\#/APS.NET/WebApiEstoque/BlazorApp1/Components/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yQXBwMVxDb21wb25lbnRzXFBhZ2VzXFdlYXRoZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programacao/C\#/APS.NET/WebApiEstoque/BlazorApp1/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yQXBwMVxDb21wb25lbnRzXFJvdXRlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programacao/C\#/APS.NET/WebApiEstoque/BlazorApp1/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yQXBwMVxDb21wb25lbnRzXF9JbXBvcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/programacao/C\#/APS.NET/WebApiEstoque/BlazorApp1/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yQXBwMVxDb21wb25lbnRzXExheW91dFxNYWluTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-xmt35l4gr9
+
+[F:/programacao/C\#/APS.NET/WebApiEstoque/BlazorApp1/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Qmxhem9yQXBwMVxDb21wb25lbnRzXExheW91dFxOYXZNZW51LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-241irj3607
