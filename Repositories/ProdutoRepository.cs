@@ -2,6 +2,7 @@
 using WebApiCurso.Models;
 using WebApiCurso.Pagination;
 using WebApiCurso.Repositories.Interfaces;
+using X.PagedList.Extensions;
 
 namespace WebApiCurso.Repositories;
 
@@ -11,7 +12,23 @@ public class ProdutoRepository : Repository<Produto>, IProdutosRepository
     {
     }
 
-    public  async Task<IEnumerable<Produto>> GetProdutosPorCategoriaAsync(int id)
+    public async Task<PagedList<Produto>> ObterProdutoFiltroNome(ProdutosParameters produtosParameters)
+    {
+        var produtos = await GetAllAsync();
+        if (!string.IsNullOrWhiteSpace(produtosParameters.nome))
+        {
+            produtos = produtos.Where(c => c.ProdutoNome.ToLower().Contains(produtosParameters.nome.ToLower()));
+        }
+
+        var produtosPaginados = PagedList<Produto>
+            .ToPagedList(produtos.AsQueryable(),
+                produtosParameters.PageNumber,
+                produtosParameters.PageSize);
+        
+        return produtosPaginados;
+    }
+
+    public async Task<IEnumerable<Produto>> GetProdutosPorCategoriaAsync(int id)
     {
         var produtos = await GetAllAsync();
         var produtosCategorias = produtos.Where(c => c.CategoriaId == id);

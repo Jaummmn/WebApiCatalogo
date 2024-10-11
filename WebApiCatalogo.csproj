@@ -38,6 +38,7 @@
 
     <ItemGroup>
       <None Remove="ApiCatalogoUnixTest\**" />
+      <None Remove="WebApiCatalogo.http" />
     </ItemGroup>
 
 </Project>

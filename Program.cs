@@ -25,7 +25,7 @@ builder.Services.AddCors(options =>
                 .AllowAnyHeader(); // permite qualquer cabecalho
         })
 );
-//
+
 builder.Services.AddRateLimiter(o =>
 {
     o.AddFixedWindowLimiter("FixedWindow", options =>

@@ -9039,11 +9039,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\programacao\\C#\\APS.NET\\WebApiCatalogo\\WebApiCatalogo\\WebApiCatalogo.csproj",
+      "projectUniqueName": "F:\\programacao\\C#\\APS.NET\\API\\WebApiCatalogo\\WebApiCatalogo\\WebApiCatalogo.csproj",
       "projectName": "WebApiCatalogo",
-      "projectPath": "F:\\programacao\\C#\\APS.NET\\WebApiCatalogo\\WebApiCatalogo\\WebApiCatalogo.csproj",
+      "projectPath": "F:\\programacao\\C#\\APS.NET\\API\\WebApiCatalogo\\WebApiCatalogo\\WebApiCatalogo.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "F:\\programacao\\C#\\APS.NET\\WebApiCatalogo\\WebApiCatalogo\\obj\\",
+      "outputPath": "F:\\programacao\\C#\\APS.NET\\API\\WebApiCatalogo\\WebApiCatalogo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
